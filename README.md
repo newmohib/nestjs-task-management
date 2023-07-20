@@ -65,10 +65,10 @@ $ npm run test:cov
   #### Defining a Controller
           Controllers are defined by decorating a class with the @Controller decorator.
           The decorator accepts a string, which is the path to be handled by the controller.
-   ####  Defining a Handler 
+  ####  Defining a Handler 
           Handlers are simply methods within the controller class, decorated with decorators such as @Get, @Post, @Delete etcetera.
 
-   ####  HTTP request incoming
+  ####  HTTP request incoming
             Request routed to Controller, handler is called with arguments.
 
             NestJS will parse the relevant request data and it will be available in the handler.
@@ -80,4 +80,14 @@ $ npm run test:cov
             Handler returns response value
 
             Response can be of any type and even an exception. Nest will wrap the returned value as an HTTP response and return it to the client.
-    
+  #### NestJS Providers
+                Can be injected into constructors if decorated as an @Injectable, via dependency injection.
+                Can be a plain value, a class, sync/async factory etc.
+                Providers must be provided to a module for them to be usable.
+                Can be exported from a module modules that import it.
+  #### What is a Service?
+                Defined as providers. Not all providers are services.
+                Common concept within software development and are not exclusive NestJS, JavaScript or back-end development.
+                Singleton when wrapped with @Injectable() and provided to a module. That means, the same instance will be shared across the application acting as a single source of truth.
+                The main source of business logic. For example, a service will be called from a controller to validate data, create an item in the database and return a response.
+  ####
